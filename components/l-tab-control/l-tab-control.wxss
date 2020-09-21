@@ -1,0 +1,18 @@
+/* components/l-tab-control/l-tab-control.wxss */
+.titlesWrap{
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  text-align: center;
+}
+.title-item{
+  flex: 1;
+}
+.title-item text{
+  padding: 5px 5px;
+  
+}
+.active text{
+  border-bottom: 2px solid #ff5777;
+  color: #ff5777;
+}

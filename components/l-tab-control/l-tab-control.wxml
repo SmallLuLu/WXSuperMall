@@ -1,0 +1,7 @@
+<view class="titlesWrap">
+  <block wx:for="{{titles}}" wx:key="index">
+    <view class='title-item {{index==currentIndex?"active":""}}' bindtap="activeClick" data-index="{{index}}">
+      <text>{{item}}</text>
+    </view>
+  </block>
+</view>

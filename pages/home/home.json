@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "l-swiper":"/components/l-swiper/l-swiper"
+    "l-swiper":"/components/l-swiper/l-swiper",
+    "l-recommend":"./childCpns/l-recommend/l-recommend",
+    "l-tab-control":"/components/l-tab-control/l-tab-control"
   },
   "navigationBarTitleText": "购物街"
 }
