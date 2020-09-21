@@ -10,3 +10,13 @@
 <!-- 导航栏 -->
 <l-tab-control titles="{{titles}}" bind:tabclick="handleTabClick"></l-tab-control> 
 <!-- 商品展示 -->
+<scroll-view>
+  <view class="goodsWrap">
+    <view class="good" wx:for="{{goods[currentType].list}}" wx:key="index">
+      <image mode="widthFix" src="{{item.show.img}}"></image>
+      <view>
+        <text>{{item.title}}</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>

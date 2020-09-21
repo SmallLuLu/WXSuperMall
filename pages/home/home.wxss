@@ -1,2 +1,12 @@
 /* pages/home/home.wxss */
 image{width: 100%;}
+.goodsWrap{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.good{
+  width: 48%;
+  text-align: center;
+}
