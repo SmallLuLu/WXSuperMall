@@ -7,6 +7,10 @@ Component({
     titles:{
       type:Array,
       value:[]
+    },
+    topIsShow:{
+      type:Boolean,
+      value:false
     }
   },
 

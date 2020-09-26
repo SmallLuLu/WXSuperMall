@@ -28,7 +28,12 @@ Page({
       }
     },
     // 请求商品数据类型
-    currentType:'pop'
+    currentType:'pop',
+    // 返回顶部
+    goTop:false,
+    // 商品顶部固定导航是否显示
+    topIsShow:false,
+    goodTabTop:0
   },
 
   /**
@@ -41,6 +46,9 @@ Page({
     this._getGoodsdata('pop');
     this._getGoodsdata('new');
     this._getGoodsdata('sell');
+  },
+  onShow(){
+    
   },
   // 初始化页面数据的获取
   _getMultidata:function(){
@@ -68,7 +76,6 @@ Page({
         [typeKey]:oldList,
         [typePage]:page
       })
-      console.log(this.data.goods)
     })
   },
   // tab-control点击事件
@@ -92,5 +99,37 @@ Page({
         break
       }
       
+  },
+  //上拉加载更多
+  onReachBottom(){
+    this._getGoodsdata(this.data.currentType)
+  },
+  // 监听也页面滚动
+  // 在onPageSrcoll中尽量少调用setData
+  onPageScroll(option){
+    // 返回顶部按钮的显现和隐藏
+    const scollTop=option.scrollTop;
+    //返回顶部的flag
+    const flag = scollTop>=500;
+    // 商品导航栏的flag
+    const flag2= scollTop>=this.data.goodTabTop;
+    // 设置一个flag先让flag和固定的位置的位置比较如果为真的话再调用setData
+    if(flag!=this.data.goTop){
+      this.setData({
+        goTop:!this.data.goTop
+      })
+    }
+    if(flag2!=this.data.topIsShow){
+      this.setData({
+        topIsShow:!this.data.topIsShow
+      })
+    }
+  },
+  // 滚动到商品导航栏顶部固定
+  // 子组件的热门推荐图片加载完成传递出来的方法
+  recommendImgLoad(){
+    wx.createSelectorQuery().select('#tab-control').boundingClientRect(rect=>{
+      this.data.goodTabTop=rect.top
+    }).exec()
   }
 })

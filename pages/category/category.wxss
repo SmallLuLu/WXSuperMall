@@ -1,1 +1,30 @@
 /* pages/category/category.wxss */
+.leftNav,.rightGood{
+  float: left;
+  height: 100vh;
+}
+.leftNav{
+  width: 30vw;
+  background-color: #f6f6f6f6;
+}
+.rightGood{
+  width: 70vw;
+}
+scroll-view{
+  height: 100%;
+}
+.navList{
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #666666;
+  font-size: 14px;
+}
+.navList-active{
+ border-left: 2px solid #ff5777; 
+ color: #ff5777;
+ background-color: #ffffff;
+}
+.l-category-good{
+  width:100% ;
+}

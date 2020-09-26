@@ -1,0 +1,17 @@
+/* pages/category/children/l-category-goods/l-category-good.wxss */
+.content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+.categoryGood{
+  width: 33.33%;
+  text-align: center;
+  color: #666666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.categoryGood image{
+  width: 80%;
+}

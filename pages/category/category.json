@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "l-category-good":"./children/l-category-goods/l-category-good",
+    "l-tab-control":"/components/l-tab-control/l-tab-control"
+  }
 }

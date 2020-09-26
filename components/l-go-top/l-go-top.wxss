@@ -1,0 +1,14 @@
+/* components/l-go-top/l-go-top.wxss */
+.goTop{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  z-index: 999;
+  bottom: 20px;
+  right: 10px;
+  /* background-color: #ff5777; */
+}
+.goTop image{
+  width: 100%;
+  height: 100%;
+}

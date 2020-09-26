@@ -1,22 +1,31 @@
+<!-- 商品导航固定 -->
+<l-tab-control titles="{{titles}}" bind:tabclick="handleTabClick" class="hide-tab-control" topIsShow="{{topIsShow}}" wx:if="{{topIsShow}}"></l-tab-control> 
 <!-- 展示轮播图 -->
 <l-swiper list="{{banner}}"></l-swiper>
 <!-- 推荐数据的展示 -->
-<l-recommend recommends="{{recommends}}"></l-recommend>
+<l-recommend recommends="{{recommends}}" bind:recommend="recommendImgLoad"></l-recommend>
 <!-- 展示本周流行 -->
 <view class="popular">
   <image src="/assets/img/home/popular_bg.jpg" mode="widthFix"></image>
 </view>
 
 <!-- 导航栏 -->
-<l-tab-control titles="{{titles}}" bind:tabclick="handleTabClick"></l-tab-control> 
+<l-tab-control titles="{{titles}}" bind:tabclick="handleTabClick" class="tab-control" id="tab-control"></l-tab-control> 
 <!-- 商品展示 -->
-<scroll-view>
+<scroll-view >
   <view class="goodsWrap">
     <view class="good" wx:for="{{goods[currentType].list}}" wx:key="index">
       <image mode="widthFix" src="{{item.show.img}}"></image>
       <view class="goodtext">
-        <text>{{item.title}}</text>
+        <view>{{item.title}}</view>
+        <view>
+          <text class="price">{{item.orgPrice}}</text>
+          <image class="collect" src="/assets/img/home/collect.png"></image>
+          <text>{{item.cfav}}</text>
+        </view>
       </view>
     </view>
   </view>
 </scroll-view>
+<!-- 返回顶部 -->
+<l-go-top goTop="{{goTop}}"></l-go-top>

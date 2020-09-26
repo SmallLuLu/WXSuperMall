@@ -1,0 +1,3 @@
+<view class="goTop" bindtap="backTop" wx:if="{{goTop}}">
+  <image src="/assets/img/common/top.png"></image>
+</view>
