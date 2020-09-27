@@ -5,6 +5,7 @@
           bind:tap="navListClick" 
           data-index="{{index}}"
           data-maitKey="{{item.maitKey}}"
+          data-miniWallkey="{{item.miniWallkey}}"
           >
       {{item.title}}
     </view>
@@ -15,6 +16,20 @@
   <scroll-view scroll-y="true">
     <!-- 商品 -->
     <l-category-good categoryGoods="{{categoryGoods}}" class="l-category-good"></l-category-good>
-    <l-tab-control titles="{{titles}}"></l-tab-control>
+    <l-tab-control titles="{{titles}}" bind:tabclick="navClick"></l-tab-control>
+    <!-- 综合新品销量分类商品-->
+    <view class="goodsWrap">
+      <view class="good" wx:for="{{goods[currentType]}}" wx:key="index">
+        <image mode="widthFix" src="{{item.img}}"></image>
+        <view class="goodtext">
+          <view>{{item.title}}</view>
+          <view>
+            <text class="price">￥{{item.orgPrice}}</text>
+            <image class="collect" src="/assets/img/home/collect.png"></image>
+            <text>{{item.cfav}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
   </scroll-view>
 </view>

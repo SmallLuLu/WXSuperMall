@@ -19,7 +19,8 @@ Page({
       'pop': [],
       'new': [],
       'sell': []
-    }
+    },
+    currentType:'pop'
   },
 
   /**
@@ -35,9 +36,13 @@ Page({
   onReady: function () {
     getCategory().then(res=>{
       this.setData({
-        leftNav:res.data.data.category.list
+        leftNav:res.data.data.category.list,
       })
+      console.log(this.data.leftNav)
       this._getSubcategory(this.data.leftNav[0].maitKey);
+      this._getCategoryDetail(this.data.leftNav[0].miniWallkey,'pop');
+      this._getCategoryDetail(this.data.leftNav[0].miniWallkey,'new');
+      this._getCategoryDetail(this.data.leftNav[0].miniWallkey,'sell');
     })
   },
 
@@ -55,7 +60,10 @@ Page({
     })
     // 点击获取分类商品数据
     this._getSubcategory(e.target.dataset.maitkey)
-
+    // 获取nav的数据
+    this._getCategoryDetail(e.target.dataset.miniwallkey,'pop');
+    this._getCategoryDetail(e.target.dataset.miniwallkey,'new');
+    this._getCategoryDetail(e.target.dataset.miniwallkey,'sell');
   },
   // 商品数据获取函数
   _getSubcategory(maitKey){
@@ -65,9 +73,36 @@ Page({
       })
     })
   },
+  // 综合新品销量分类数据的获取
   _getCategoryDetail(miniWallkey, type){
     getCategoryDetail(miniWallkey, type).then(res=>{
-
+      const resList=res.data;
+      const typeKey=`goods.${type}`
+      this.setData({
+        [typeKey]:resList
+      })
     })
+  },
+  // 小导航栏切换
+  navClick(event){
+    let index=event.detail.index;
+    switch (index){
+      case 0:
+        this.setData({
+          currentType:"pop"
+        })
+        break
+      case 1:
+        this.setData({
+          currentType:"new"
+        })
+        break
+      case 2:
+        this.setData({
+          currentType:"sell"
+        })
+        break
+      }
+      
   }
 })
